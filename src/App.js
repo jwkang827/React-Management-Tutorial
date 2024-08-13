@@ -1,3 +1,4 @@
+import { Table, TableBody, TableHead, TableRow, TableCell } from '@mui/material';
 import './App.css';
 import Customer from './components/Customer';
 
@@ -29,9 +30,25 @@ const customers = [
 
 function App() {
   return (
-   customers.map(c => {
-    return <Customer customer={c} key={c.id}></Customer>
-   })
+    <Table>
+      <TableHead>
+      <TableRow>
+            <TableCell>번호</TableCell>
+            <TableCell>이미지</TableCell>
+            <TableCell>이름</TableCell>
+            <TableCell>생년월일</TableCell>
+            <TableCell>성별</TableCell>
+            <TableCell>직업</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+      {customers.map(c => {
+        return <Customer customer={c} key={c.id}></Customer>
+      })}
+
+      </TableBody>
+      
+    </Table>
   );
 }
 
